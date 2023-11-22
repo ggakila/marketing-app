@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .timeline-img {
+    @apply w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full
   }
+
+  .checkpoint{
+    @apply relative z-10 flex flex-col md:flex-row gap-6 lg:w-[70%]
+  }
+
+  .timeline-container{
+    @apply text-white shadow-md  w-full border-[#888] p-4 rounded
+  }
+
+  .left {
+    @apply md:flex-row-reverse bg-teal-700 rounded-md md:items-center p-4 shadow-md
+  }
+
+  .right {
+    @apply md:items-center p-4 shadow-md bg-cyan-700 rounded-md
+  }
+
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
