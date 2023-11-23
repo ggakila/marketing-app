@@ -1,4 +1,4 @@
-import DataForm from "@/components/Form";
+import DataForm from "@/components/form";
 
 export default function PromptPage() {
   return (

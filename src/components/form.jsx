@@ -31,34 +31,38 @@ const DataForm = () => {
     
   
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-      try {
-        const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
+  try {
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
 
-        const raw = JSON.stringify(values);
+    const raw = JSON.stringify(values);
 
-        const requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: raw,
-          redirect: 'follow',
-        };
-
-        const response = await fetch('https://482b-41-90-182-86.ngrok-free.app/api/v1/getStategy', requestOptions);
-
-        if (response.ok) {      
-          router.push('/presentation');
-          console.log(values);
-          resetForm();
-        } else {
-          console.error('Error:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error submitting form:', error);
-      } finally {
-        setSubmitting(false);
-      }
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
     };
+
+    const response = await fetch('https://482b-41-90-182-86.ngrok-free.app/api/v1/getStategy', requestOptions);
+
+    if (response.ok) {      
+      router.push('/presentation');
+      console.log(values);
+      console.log(response);
+      resetForm();
+    } else {
+      console.error('Error:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+  } finally {
+    setSubmitting(false);
+  }
+};
+
+
+
 
 
     const handlePrevious = () => {
