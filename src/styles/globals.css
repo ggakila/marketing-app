@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
   .timeline-img {
     @apply w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full
   }
 
   .checkpoint{
-    @apply relative z-10 flex flex-col md:flex-row gap-6 lg:w-[70%]
+    @apply relative z-10 flex flex-col md:flex-row gap-6 lg:w-[65%]
   }
 
   .timeline-container{
@@ -20,8 +21,25 @@
   }
 
   .right {
-    @apply md:items-center p-4 shadow-md bg-cyan-700 rounded-md
+    @apply md:items-center p-4 shadow-md rounded-md bg-yellow-700
   }
 
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}

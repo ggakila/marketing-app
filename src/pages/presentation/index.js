@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 const fadeInAnimationVariants = {
   initial: {
@@ -15,25 +16,30 @@ const fadeInAnimationVariants = {
   })
 }
 
+
 const Presentation = () => {
+
+  let colors = ['cyan-700', 'teal-700', 'slate-700', 'emerald-700', 'fuchsia-700', 'indigo-700', 'orange-700', 'amber-700', 'yellow-700', 'lime-700', 'red-700', 'sky-700', 'blue-700', 'violet-700', 'purple-700', 'rose-700' ]
+  
+
   return (
     <div className='flex flex-col items-center h-full text-white bg-[url("https://builtin.com/sites/www.builtin.com/files/styles/og/public/2022-09/marketing.png")]'>
       <div className='fixed bg-black opacity-80 h-full w-full top-0 bottom-0'></div>
       <header className='text-center my-6 mx-4 relative z-10'>
         <h1 className='font-bold text-2xl m-4'>Step Into Your Style, Define Your Stride</h1>
-        <p className='text-blue-400 m-4'>
+        <p className='text-white font-medium text-xl m-4'>
         Our campaign revolves around empowering men to express their unique style through our sneakers while embracing their individuality with confidence. "Step Into Your Style, Define Your Stride" encapsulates the idea that our sneakers are not just footwear but a statement of personal expression, comfort, and quality.
         </p>
       </header>
       <ol className='relative z-20 p-10 flex flex-col gap-6 items-center w-full'>
         <motion.li 
-          className='checkpoint right'
+          className={`checkpoint bg-${colors[0]} right`}
           variants={fadeInAnimationVariants}
           initial="initial"
           whileInView= "animate"
           viewport={{once: true}}
         >
-          <img width={20} height={20} className='timeline-Img' src='https://builtin.com/sites/www.builtin.com/files/styles/og/public/2022-09/marketing.png' alt='image' />
+          <img className='timeline-img' src='https://builtin.com/sites/www.builtin.com/files/styles/og/public/2022-09/marketing.png' alt='image' />
           <div className='timeline-container'>
             <h2 className="mb-1 font-semibold text-xl">Market Research and Persona Development</h2>
             <p>Understand your target audience by conducting in-depth market research. Identify the demographics, interests, and preferences of your potential customers. Create detailed buyer personas to guide your campaign.</p>
