@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-export default function Howitworks() {
+export default function HowItWorks() {
   return (
     <div className="container h-1/2 md:h-screen py-5 md:py-10 px-10 flex flex-col items-center justify-center gap-10">
       <div className="w-full flex flex-col items-center justify-center gap-6 ">
