@@ -11,7 +11,7 @@
   }
 
   .checkpoint{
-    @apply relative z-10 flex flex-col md:flex-row gap-6 lg:w-[65%]
+    @apply relative z-10 flex flex-col items-center md:flex-row gap-6 lg:w-[65%]
   }
 
   .timeline-container{
@@ -19,11 +19,19 @@
   }
 
   .left {
-    @apply md:flex-row-reverse bg-teal-700 rounded-md md:items-center p-4 shadow-md
+    @apply md:flex-row-reverse md:items-center bg-teal-700
   }
 
   .right {
-    @apply md:items-center p-4 shadow-md rounded-md bg-yellow-700
+    @apply md:items-center bg-yellow-700
+  }
+
+  .odd {
+    @apply bg-[#8B4121]
+  }
+
+  .even {
+    @apply bg-[#E8894B]
   }
 
 }
