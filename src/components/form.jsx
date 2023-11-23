@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useRouter } from 'next/router';
 
 
 const initialValues = {
@@ -23,7 +24,7 @@ const validationSchema = Yup.object({
 });
 
 const DataForm = () => {
-  
+  const router = useRouter();
   const [currentPart, setCurrentPart] = useState(1);
   const totalParts = 4; 
 
