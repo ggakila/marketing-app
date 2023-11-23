@@ -1,9 +1,9 @@
 import { useRef, useState } from "react"
 import html2canvas from "html2canvas"
 import jsPDF from "jspdf"
-import Card from "@/components/presentation/Card"
-import Pentagon from "@/components/presentation/Pentagon"
-import Press from "@/components/presentation/Press"
+import Card from "@/components/templates/Card"
+import Pentagon from "@/components/templates/Pentagon"
+import Press from "@/components/templates/Press"
 
 const data = {
   tagline: "Step Into Your Style, Define Your Stride",
@@ -69,8 +69,14 @@ const Presentation = () => {
   const pdfRef = useRef()
 
   const newTemplate = () => {
-    setTemplateIndex(Math.floor(Math.random() * 5))
+    if(templateIndex >= 0 && templateIndex < 3 ){
+      setTemplateIndex(templateIndex + 1)
+    }else if(templateIndex > 2){
+      setTemplateIndex(0)
+    }
   }
+
+  console.log(templateIndex);
 
   const downloadPdf = () => {
     const input = pdfRef.current;
@@ -99,7 +105,7 @@ const Presentation = () => {
             <h1 className='font-bold text-2xl m-4'>{data.tagline}</h1>
             <p className='text-slate-700 font-medium text-xl m-4'>{data.description}</p>
           </header>
-          <ol className={`relative z-20 p-10 grid gap-14 justify-items-center m lg:grid-cols-4 lg:gap-y-14 w-full`}>
+          <ol className={`relative z-20 p-10 grid gap-14 justify-items-center md:grid-cols-2 lg:grid-cols-3 lg:gap-y-14 w-full`}>
           {data.items.map((item) => (
               <Pentagon
                 title={item.title}
@@ -110,11 +116,15 @@ const Presentation = () => {
           ))}
           </ol>
           </div>
-        <div className="flex justify-center items-center gap-4 text-gray-700" >
-          <p className="text-xl">You like this style? </p>
-          <button onClick={downloadPdf} className="bg-teal-700 p-2 rounded text-white">Download PDF</button>
-          <span>or</span>
-          <button onClick={newTemplate} className="bg-teal-700 p-2 rounded text-white">Regenerate new style</button>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-700 mt-4" >
+          <div className="flex items-center gap-2">
+            <p className="text-xl">You like this style? </p>
+            <button onClick={downloadPdf} className="bg-stone-900 p-2 text-white">Download PDF</button>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <span>or</span>
+            <button onClick={newTemplate} className="bg-stone-900 p-2 text-white">Generate new style</button>
+          </div>
         </div>
       </div>
     )
@@ -137,19 +147,22 @@ const Presentation = () => {
               ))}
           </ol>
           </div>
-        <div className="flex justify-center items-center gap-4 text-gray-700" >
-          <p className="text-xl">You like this style? </p>
-          <div></div>
-          <button onClick={downloadPdf} className="bg-teal-700 p-2 rounded text-white">Download PDF</button>
-          <span>or</span>
-          <button onClick={newTemplate} className="bg-teal-700 p-2 rounded text-white">Regenerate new style</button>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-700 mt-4" >
+          <div className="flex items-center gap-2">
+            <p className="text-xl">You like this style? </p>
+            <button onClick={downloadPdf} className="bg-stone-900 p-2 text-white">Download PDF</button>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <span>or</span>
+            <button onClick={newTemplate} className="bg-stone-900 p-2 text-white">Generate new style</button>
+          </div>
         </div>
       </div>
     )
   } else {
     content = (
       <div>
-          <div ref={pdfRef} className='flex flex-col h-full text-gray-900 bg-white'>
+        <div ref={pdfRef} className='flex flex-col h-full text-gray-900 bg-white'>
           <header className='my-6 mx-4 relative z-10'>
             <h1 className='font-bold text-2xl m-4 text-[#8B4121]'>{data.tagline}</h1>
             <p className='text-[#E8894B] font-medium text-lg m-4'>{data.description}</p>
@@ -171,12 +184,12 @@ const Presentation = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 text-gray-700" >
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-700 mt-4" >
           <div className="flex items-center gap-2">
             <p className="text-xl">You like this style? </p>
             <button onClick={downloadPdf} className="bg-stone-900 p-2 text-white">Download PDF</button>
           </div>
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-4">
             <span>or</span>
             <button onClick={newTemplate} className="bg-stone-900 p-2 text-white">Generate new style</button>
           </div>

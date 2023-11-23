@@ -5,14 +5,14 @@ import { SlSettings } from "react-icons/sl"
 const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
-      x: 100,
+      x: -100,
     },
-    animate: () => ({
+    animate: (id) => ({
       opacity: 1,
       x: 0,
       transition: {
-        duration: 3 ,
-        type: "tween"
+        duration: 1 * id ,
+        type: "spring"
       }
     })
   }
@@ -30,7 +30,7 @@ const Press = ({title, description, id}) => {
 
   return (
     <motion.div
-        key={id}
+          key={id}
           className={`text-white relative flex flex-col gap-4 px-4 h-fit `}
           variants={fadeInAnimationVariants}
           initial="initial"
@@ -38,7 +38,7 @@ const Press = ({title, description, id}) => {
           viewport={{once: true}}
           custom={id}
         > 
-          <div className='flex gap-4'>
+          <div key={id} className='flex gap-4'>
             <div className={`flex justify-center items-center px-8 ${className}`}>
                 <SlSettings className='w-10 h-10' />
             </div>
