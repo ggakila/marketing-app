@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="container flex flex-col items-center justify-center h-full md:h-screen w-full py-10 gap-10 sm:gap-20 mt-20">
+    <div className=" hero flex flex-col items-center justify-center h-full md:h-screen w-screen py-10 gap-10 sm:gap-20 mt-20">
         <div className=" flex flex-col items-center justify-center w-4/5 gap-4">
             <h1 className="text-4xl md:text-6xl font-bold w-full sm:w-1/2 text-center leading-normal tracking-normal">Unlock your Business's Potential with AI</h1>
             <div className="w-full sm:w-1/2 flex flex-col gap-4">
@@ -15,6 +15,11 @@ export default function Hero() {
             </div>
         </div>
         <div className="hero-image relative w-4/5 h-[300px] sm:h-[600px]">
+            <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
             <Image
             src="/cool-background.png"
             fill={true}

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import axios from "axios";
 
 
 const initialValues = {
@@ -31,35 +32,33 @@ const DataForm = () => {
     
   
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-  try {
-    const myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/json');
+			try {
+				const response = await axios.post(
+					"http://3.145.137.44/api/v1/getStrategy",
+					values,
+					{
+						headers: {
+							"Content-Type": "application/json",
+						},
+					}
+				);
 
-    const raw = JSON.stringify(values);
+				await new Promise((resolve) => setTimeout(resolve, 20000));
 
-    const requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow',
-    };
-
-    const response = await fetch('https://482b-41-90-182-86.ngrok-free.app/api/v1/getStategy', requestOptions);
-
-    if (response.ok) {      
-      router.push('/presentation');
-      console.log(values);
-      console.log(response);
-      resetForm();
-    } else {
-      console.error('Error:', response.statusText);
-    }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-  } finally {
-    setSubmitting(false);
-  }
-};
+				if (response.status === 200) {
+					router.push("/presentation");
+					console.log(values);
+					console.log(response.data);
+					resetForm();
+				} else {
+					console.error("Error:", response.statusText);
+				}
+			} catch (error) {
+				console.error("Error submitting form:", error);
+			} finally {
+				setSubmitting(false);
+			}
+		};
 
 
 
