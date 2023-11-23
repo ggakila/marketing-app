@@ -1,4 +1,4 @@
-import Howitworks from "@/components/HowItWorks";
+import Howitworks from "@/components/howitworks";
 import Hero from "@/components/hero";
 
 export default function Home() {
