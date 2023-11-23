@@ -1,24 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 
-const fadeInAnimationVariants = {
+const fadeInAnimationVariantsLeft = {
+    initial: {
+      opacity: 0,
+      x: -100,
+    },
+    animate: (id) => ({
+      opacity: 1,
+      x: 100,
+      transition: {
+        duration: 1 * id ,
+        type: "spring"
+      }
+    })
+  }
+
+  const fadeInAnimationVariantsLeftRight = {
     initial: {
       opacity: 0,
       x: 100,
     },
-    animate: () => ({
+    animate: (id) => ({
       opacity: 1,
       x: 0,
       transition: {
-        duration: 3 ,
-        type: "tween"
+        duration: 1 * id ,
+        type: "spring"
       }
     })
   }
 
 const Card = ({title, description, id}) => {
-    let colors = ['cyan-700', 'teal-700', 'slate-700', 'emerald-700', 'fuchsia-700', 'indigo-700', 'orange-700', 'amber-700', 'yellow-700', 'lime-700', 'red-700', 'sky-700', 'blue-700', 'violet-700', 'purple-700', 'rose-700' ]
-    let index = parseInt(Math.random() * colors.length)
 
     const [className, setClassName] = useState("right")
     
@@ -26,14 +39,14 @@ const Card = ({title, description, id}) => {
       if(id % 2 === 0) {
         setClassName('left')
     }  
-    }, [])
+    }, [id])
     
 
   return (
     <motion.div
         key={id}
-          className={`checkpoint p-4 shadow-md rounded-md bg-${colors[index]} ${className}`}
-          variants={fadeInAnimationVariants}
+          className={`checkpoint p-4 shadow-md rounded-md ${className}`}
+          variants={className === 'left' ? fadeInAnimationVariantsLeft : fadeInAnimationVariantsLeftRight}
           initial="initial"
           whileInView= "animate"
           viewport={{once: true}}
