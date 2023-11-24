@@ -54,7 +54,8 @@ const DataForm = () => {
 				await new Promise((resolve) => setTimeout(resolve, 20000));
 
 				if (response.status === 200) {
-          			setResults(response.data)
+					const data = JSON.parse(response.data.slice(0, -13))
+          			setResults(data)
 					router.push("/presentation");
 					resetForm();
 				} else {
