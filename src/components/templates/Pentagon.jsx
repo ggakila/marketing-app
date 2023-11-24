@@ -16,7 +16,7 @@ const fadeInAnimationVariants = {
     })
   }
 
-const Pentagon = ({title, description, id, newTemplate}) => {
+const Pentagon = ({title, description, id}) => {
 
     const [className, setClassName] = useState("right")
     
@@ -38,7 +38,7 @@ const Pentagon = ({title, description, id, newTemplate}) => {
           custom={id}
         >
           <img className='timeline-img absolute top-[-50px]' src='https://builtin.com/sites/www.builtin.com/files/styles/og/public/2022-09/marketing.png' alt='image' />
-          <div className='w-full flex flex-col gap-4 mt-20'>
+          <div key={id} className='w-full flex flex-col gap-4 mt-20'>
             <h2 className="mb-1 font-semibold text-xl text-center">{title}</h2>
             <p>{description}</p>
           </div>

@@ -8,7 +8,7 @@ const fadeInAnimationVariantsLeft = {
     },
     animate: (id) => ({
       opacity: 1,
-      x: 100,
+      x: 50,
       transition: {
         duration: 1 * id ,
         type: "spring"
@@ -53,7 +53,7 @@ const Card = ({title, description, id}) => {
           custom={id}
         >
           <img className='timeline-img' src='https://builtin.com/sites/www.builtin.com/files/styles/og/public/2022-09/marketing.png' alt='image' />
-          <div className='timeline-container'>
+          <div key={id} className='timeline-container'>
             <h2 className="mb-1 font-semibold text-xl text-center md:">{title}</h2>
             <p>{description}</p>
           </div>

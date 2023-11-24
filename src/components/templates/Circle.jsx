@@ -38,7 +38,7 @@ const Circle = ({title, description, id}) => {
           custom={id}
         >
           <div className='absolute inset-0 border border-[3px] border-white rounded-full'></div>  
-          <div className='w-full flex flex-col items-center gap-4'>
+          <div key={id} className='w-full flex flex-col items-center gap-4'>
             <h2 className="mt-3 font-semibold text-md text-center w-[200px]">{title}</h2>
             <p className='text-center text-md'>{description}</p>
           </div>

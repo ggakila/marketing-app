@@ -39,8 +39,8 @@ const Press = ({title, description, id}) => {
           custom={id}
         > 
           <div key={id} className='flex gap-4'>
-            <div className={`flex justify-center items-center px-8 ${className}`}>
-                <SlSettings className='w-10 h-10' />
+            <div className={`flex justify-center items-center px-8 w-12 ${className}`}>
+                <p className='text-4xl font-extrabold'>{id}</p>
             </div>
             <div className={`flex flex-col gap-3 px-4  py-2 ${className}`}>
                 <h2 className="font-semibold text-xl">{title}</h2> 
