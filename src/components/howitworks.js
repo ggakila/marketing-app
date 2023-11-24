@@ -5,7 +5,7 @@ export default function HowItWorks() {
     <div className="container h-1/2 md:h-screen py-5 md:py-10 px-10 flex flex-col items-center justify-center gap-10">
       <div className="w-full flex flex-col items-center justify-center gap-6 ">
         <h1 className="text-3xl md:text-6xl w-2/3 text-center font-bold tracking-wide leading-normal">Generate Powerful AI Marketing Campaigns in Minutes</h1>
-        <p className="text-lg md:text-xl text-gray-600 font-medium text-center w-1/2">
+        <p className="text-lg md:text-xl text-gray-600 font-medium text-center w-2/3 lg:w-1/2">
             Our AI powered marketing campaign generator takes the hastle out of creating effective campaigns. 
             Simply input your business name, industry and customer data, and analyze your customer demographics to generate personalized campaigns that drive results
         </p>

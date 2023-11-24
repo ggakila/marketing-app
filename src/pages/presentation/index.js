@@ -100,7 +100,7 @@ const Presentation = () => {
   if(templateIndex === 0 ) {
     content = (
       <div>
-          <div ref={pdfRef} className='flex flex-col items-center h-full text-gray-900 bg-white'>
+          <div ref={pdfRef} className='flex flex-col items-center h-full text-gray-900 bg-white mt-20'>
           <header className='text-center my-6 mx-4 relative z-10'>
             <h1 className='font-bold text-2xl m-4'>{data.tagline}</h1>
             <p className='text-slate-700 font-medium text-xl m-4'>{data.description}</p>
@@ -131,7 +131,7 @@ const Presentation = () => {
   } else if(templateIndex === 1) {
     content = (
       <div>
-          <div ref={pdfRef} className='flex flex-col items-center h-full text-gray-900 bg-white'>
+          <div ref={pdfRef} className='flex flex-col items-center h-full text-gray-900 bg-white mt-20'>
           <header className='text-center my-6 mx-4 relative z-10'>
             <h1 className='font-bold text-2xl m-4'>{data.tagline}</h1>
             <p className='text-slate-700 font-medium text-xl m-4'>{data.description}</p>
@@ -162,7 +162,7 @@ const Presentation = () => {
   } else {
     content = (
       <div>
-        <div ref={pdfRef} className='flex flex-col h-full text-gray-900 bg-white'>
+        <div ref={pdfRef} className='flex flex-col h-full text-gray-900 bg-white mt-20'>
           <header className='my-6 mx-4 relative z-10'>
             <h1 className='font-bold text-2xl m-4 text-[#8B4121]'>{data.tagline}</h1>
             <p className='text-[#E8894B] font-medium text-lg m-4'>{data.description}</p>
