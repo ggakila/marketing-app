@@ -1,11 +1,17 @@
 import '../styles/globals.css'
 import Layout from "../components/layout";
 import '@/styles/globals.css'
+import { ResponseContextProvider } from '@/context/ResponseContext';
 
 export default function App({ Component, pageProps }) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<>
+			<ResponseContextProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</ResponseContextProvider>
+		</>
+		
 	);
 }
