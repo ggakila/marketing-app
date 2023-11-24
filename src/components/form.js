@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import axios from "axios";
+import useResponse from '@/hooks/useResponse';
 
 
 const initialValues = {
@@ -29,6 +30,8 @@ const DataForm = () => {
   const [currentPart, setCurrentPart] = useState(1);
   const totalParts = 4; 
 
+  const { results, setResults } = useResponse()
+
     
   
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -46,9 +49,8 @@ const DataForm = () => {
 				await new Promise((resolve) => setTimeout(resolve, 20000));
 
 				if (response.status === 200) {
+          setResults(response.data)
 					router.push("/presentation");
-					console.log(values);
-					console.log(response.data);
 					resetForm();
 				} else {
 					console.error("Error:", response.statusText);
