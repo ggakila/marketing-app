@@ -10,7 +10,7 @@ import useResponse from "@/hooks/useResponse"
 const Presentation = () => {
 
   const { results } = useResponse()
-  console.log(results);
+  console.log(results.tagline);
 
   const [templateIndex, setTemplateIndex] = useState(0)
   const pdfRef = useRef()
