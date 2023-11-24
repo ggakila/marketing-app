@@ -37,7 +37,7 @@ const DataForm = () => {
 			try {
         setIsLoading(true);
 				const response = await axios.post(
-					"http://3.145.137.44/api/v1/getStrategy",
+					"https://482b-41-90-182-86.ngrok-free.app/api/v1/getstrategy",
 					values,
 					{
 						headers: {
