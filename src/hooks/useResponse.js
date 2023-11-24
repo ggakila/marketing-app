@@ -1,9 +1,8 @@
-import ResponseContext from "@/context/ResponseContext"
-
-const { useContext } = require("react")
+import { useContext } from "react";
+import ResponseContext from "@/context/ResponseContext";
 
 const useResponse = () => {
-    return useContext(ResponseContext)
-}
+	return useContext(ResponseContext);
+};
 
-export default useResponse
+export default useResponse;
