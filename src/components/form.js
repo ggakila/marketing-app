@@ -42,7 +42,7 @@ const DataForm = () => {
         setIsLoading(true);
         setError(null);
 				const response = await axios.post(
-					"https://482b-41-90-182-86.ngrok-free.app/api/v1/getstrategy",
+					"https://8b5a-41-90-188-249.ngrok-free.app/api/v1/getstrategy",
 					values,
 					{
 						headers: {
